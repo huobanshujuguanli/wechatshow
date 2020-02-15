@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <form bindsubmit="formSubmit" bindreset="formReset">
+            <view class="section">
+                <view class="section__title">设备编号：</view>
+                <input  name="deviceNo"  style='padding:20rpx 30rpx;background-color:#fff;'/>
+            </view>
+            <view class="btn-area">
+                <view class="button-wrapper">
+                    <button type="primary" formType="submit" class="primary">查询</button>
+                </view>
+                <view class="button-wrapper">
+                    <button type="default" formType="reset" bindtap="scanCode">扫一扫查询</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>

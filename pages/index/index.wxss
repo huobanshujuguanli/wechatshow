@@ -1,0 +1,62 @@
+button::after {
+ 
+  border: none;
+ 
+}
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  /* align-items: center; */
+  padding-left:60rpx;
+  background-color:#2E2E30;
+  height:190rpx;
+  padding-top:30rpx;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.user-list {
+	background:#fff;
+  padding:10rpx 10rpx 0 30rpx;
+  margin-top:20rpx;
+}
+
+.user-list .user-list-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 98rpx;
+	line-height: 98rpx;
+	padding-right: 10rpx;
+  margin-bottom:20rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+
+.user-list .user-list-item .item-left {
+	font-size: 16px;
+	color: #333;
+}
+
+.user-list .user-list-item .item-left image {
+	padding-right: 18rpx;
+	margin-top: -4px;
+	vertical-align: middle;
+}
+
+.user-list .user-list-item.no-border {
+	border-bottom: none;
+}
+ 
+ 

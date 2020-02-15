@@ -1,0 +1,161 @@
+<!--pages/image/demo2/index.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="img-list2">
+      <view class="ul">
+        <view class='ff_anniu'>
+          <view class="li" wx:for="{{imgList}}" wx:key="key" wx:for-item="item">
+            <view wx:if="{{item.runstate === '未连接' || item.runstate === 'Not connected'|| item.runstate === 'Error' }}" data-id='{{item.deviceNo}}' bindlongtap="longTap">
+              <view class="title">
+                <view class="marquee_container" style="--marqueeWidth--:-8em">
+                  <view class="marquee_text">{{item.title}}——{{item.runstate}}</view>
+                </view>
+              </view>
+              <view class="info">
+
+                <text>{{item.mock1}}</text>
+                <text>{{item.mock2}}</text>
+              </view>
+              <view class="start" style='color:white'>
+                <!-- <text>运行时间：{{item.runday}}</text> -->
+              </view>
+              <view class="image">
+                <image src="" style="width: 140px; height: 70px;" mode="aspectFit"></image>
+              </view>
+            </view>
+            <view wx:else bindtap="handleTap" data-id='{{item.deviceNo}}' data-imgstyle='{{item.imgstyle}}' data-control='{{item.control}}' data-title='{{item.title}}' data-type='{{item.type}}' data-device='{{item.device}}' data-jiarezu='{{item.jiarezu}}' bindlongtap="longTap">
+              <view class="title">
+                <view style='float:right;' wx:if="{{item.errcount >0}}">
+                  <text style='height:25px;padding:0 2%;padding-top:10px;font-size:16px;color:red'>{{item.errcount}}</text>
+                </view>
+                <view style='float:right;' wx:if="{{item.errcount >0}}">
+                  <image src="../../images/ling.png" style='width: 50rpx; height: 50rpx'></image>
+                </view>
+                <view class="marquee_container" style="--marqueeWidth--:-8em">
+                  <view class="marquee_text">{{item.title}}——{{item.runstate}}</view>
+                </view>
+                
+              </view>
+
+              <view wx:if="{{item.lang === 'zh-cn'}}">
+                <view class="info" style='padding-bottom: 10px; '>
+                  <text class='zhmock'></text>
+                  <text class='zhmock'>{{item.mock1}}</text>
+                  <text class='zhmock'>{{item.mock2}}</text>
+                </view>
+              </view>
+              <view wx:if="{{item.lang === 'en-us'}}">
+                <view class="info">
+                  <text class='enmock'>{{item.mock1}}</text>
+                  <text class='enmock'>{{item.mock2}}</text>
+                </view>
+              </view>
+              <view class="start" style='color:white'>
+                <text>{{content.list_runtime}}:{{item.runday}}</text>
+              </view>
+              <view class="image">
+                <view style=' position: absolute;right:110rpx;top:70rpx;' wx:if="{{item.jiarezu !=''}}">
+                  <text>{{item.jiarezu}}</text>
+                </view>
+                <image src="{{item.src}}" style="width: 140px; height: 70px;" mode="aspectFit"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='toast-box' hidden='{{!ifName}}'>
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <!-- <view class='toast-title'>
+      <text>重命名
+      </text>
+    </view> -->
+    <!-- <image style="width: 45rpx; height: 45rpx;vertical-align: middle;float:right;right:5px;top:5px" src="../../images/close.png"  catchtap='closeTap' ></image> -->
+    <view class='toast-main'>
+      <view class='toast-input' style='border:0px solid #ddd;'>
+        <button catchtap='rename' style=' background-color: white;'>{{content.list_rename}}</button>
+        <button catchtap='deleteDevice' style=' background-color: white;'>{{content.list_delete}}</button>
+        <button catchtap='imgstyle' style=' background-color: white;'>{{content.list_chooseimg}}</button>
+      </view>
+      <view style='border-top:1px solid #eee;width:100%'>
+        <button catchtap='closeTap' style=' background-color: white;'>{{content.list_cancel}}</button>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<!-- <view class='toast-box' wx:if="{{canIUse}}">
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <view class='toast-main'>
+      <view class='toast-input' style='border:0px solid #ddd;'>
+        <button catchtap='deleteDevice' style=' background-color: white;'>欢迎使用</button>
+        <button catchtap='imgstyle' style=' background-color: white;'>简洁锅炉监控小程序</button>
+      </view>
+      <view style='border-top:1px solid #eee;width:100%'>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style=' background-color: white;'>微信授权</button>
+      </view>
+    </view>
+  </view>
+</view> -->
+<view class='toast-box' hidden='{{!ifstyle}}'>
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <!-- <view class='toast-title'>
+      <text></text>
+    </view> -->
+    <view class='toast-main'>
+      <view class='toast-input' style='border:0px solid #ddd;'>
+        <button catchtap='listyle' style=' background-color: white;'>{{content.list_vertical}}</button>
+        <button catchtap='wostyle' style=' background-color: white;'>{{content.list_horizontal}}</button>
+      </view>
+      <view style='border-top:1px solid #eee;width:100%'>
+        <button catchtap='closeStyle' style=' background-color: white;'>{{content.list_cancel}}</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='toast-box' hidden='{{!ifrename}}'>
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <view class='toast-title'>
+      <text>{{content.list_updatename}}</text>
+    </view>
+    <view class='toast-main1'>
+      <view class='toast-input'>
+        <input placeholder='{{content.list_plename}}' bindinput="dName"></input>
+      </view>
+    </view>
+    <view class='toast-button'>
+      <view class='button1'>
+        <button catchtap='renamecance'>{{content.list_cancel}}</button>
+      </view>
+      <view class='button2'>
+        <button catchtap='renameconfirm'>{{content.list_yes}}</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='toast-box' hidden='{{!ifdelete}}'>
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <view class='toast-title'>
+      <text>{{content.list_prompt}}</text>
+    </view>
+    <view class='toast-main1'>
+      <text>{{content.list_boldelete}}</text>
+    </view>
+    <view class='toast-button'>
+      <view class='button1'>
+        <button catchtap='nodelete'>{{content.list_cancel}}</button>
+      </view>
+      <view class='button2'>
+        <button catchtap='yesdelete'>{{content.list_yes}}</button>
+      </view>
+    </view>
+  </view>
+</view>

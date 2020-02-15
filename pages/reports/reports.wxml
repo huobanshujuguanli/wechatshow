@@ -1,0 +1,7 @@
+ <view class="li" wx:for="{{list}}" wx:for-item="item">
+  <text>{{item.deviceNo}}-{{item.deviceType}}</text>
+ </view>
+  <button bindtap="startdebug">开启调试</button>
+  <button bindtap="enddebug">关闭调试</button>
+   <!-- <button bindtap="conn">conn</button>
+  <button bindtap="publish">publish</button> -->

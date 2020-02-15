@@ -1,0 +1,9 @@
+<view wx:if="{{!success}}">
+  <view class='row'>
+    <view class='info'>
+      <input class='info-input1' bindinput="handleInputPhone" placeholder="{{content.forgotPw_pleasephone}}" />
+    </view>
+  </view>
+ 
+  <button class='submit' bindtap='doGetCode'>{{content.forgotPw_getPw}}</button>
+</view>

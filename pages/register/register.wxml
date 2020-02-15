@@ -1,0 +1,46 @@
+<view wx:if="{{lang}}">
+  <view class='row'>
+    <view class='info'>
+      <input class="info-input" bindinput="bindinput" value="{{inputValue}}" placeholder="{{content.register_pguojia}}" />
+    </view>
+    <scroll-view scroll-y="true" class="scrollview">
+      <view wx:for="{{bindSource}}">
+        <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input class='info-input1' bindinput="handleInputPhone" placeholder="{{content.login_pleaseuserName}}" />
+  </view>
+  <button class='button' bindtap='doGetCode' disabled='{{disabled}}' style="background-color:{{color}}">{{text}}</button>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input class='info-input' bindinput="handleVerificationCode" placeholder="{{content.register_pleasecode}}" />
+  </view>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input class='info-input' bindinput="handleRealName" placeholder="{{content.register_pleasename}}" />
+  </view>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input class='info-input' bindinput="handleEName" placeholder="{{content.register_pleaseename}}" />
+  </view>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input type='password' class='info-input' bindinput="handleNewChanges" placeholder="{{content.register_pleasepw}}" />
+  </view>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input type='password' class='info-input' bindinput="handleNewChangesAgain" placeholder="{{content.register_pleasepwagain}}" />
+  </view>
+
+</view>
+<button class='submit' bindtap='submit'>{{content.register_submit}}</button>

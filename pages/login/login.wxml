@@ -1,0 +1,41 @@
+<view wx:if="{{lang}}">
+  <view class='row'>
+    <view class='info'>
+      <input class="info-input" bindinput="bindinput" value="{{inputValue}}" placeholder="{{content.register_pguojia}}" />
+    </view>
+    <scroll-view scroll-y="true" class="scrollview">
+      <view wx:for="{{bindSource}}">
+        <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input class='info-input1' bindinput="handleInputPhone" placeholder="{{content.login_pleaseuserName}}" />
+  </view>
+  <button class='button' bindtap='doGetCode' disabled='{{disabled}}' style="background-color:{{color}}">{{text}}</button>
+</view>
+<view class='row'>
+  <view class='info'>
+    <input class='info-input' bindinput="handleVerificationCode" placeholder="{{content.register_pleasecode}}" />
+  </view>
+</view>
+<button class='submit' bindtap='submit'>{{content.login_bindUser}}</button>
+<view class='toast-box' hidden='{{!empower}}'>
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <view class='toast-title'>
+      <text>{{content.list_prompt}}</text>
+    </view>
+    <view class='toast-button'>
+      <view class='button1'>
+        <button catchtap='refusedEmpower'>{{content.operation_noshouquan}}</button>
+      </view>
+      <view class='button2'>
+         <button wx:if="{{true}}" open-type="getUserInfo"  bindgetuserinfo="bindGetUserInfo" style="">{{content.operation_shouquan}}</button>
+      </view>
+    </view>
+  </view>
+</view>

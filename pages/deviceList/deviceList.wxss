@@ -1,0 +1,404 @@
+button::after {
+ 
+  border: none;
+ 
+}
+ 
+open-data[type="userAvatarUrl"]{
+ 
+    width:120rpx;
+ 
+    border-radius: 50%;
+ 
+    overflow: hidden;
+ 
+}
+ 
+.container {
+ 
+  width: 100%;
+ 
+  overflow: hidden;
+ 
+  font-size: 12px;
+ 
+  font-family: "\5FAE\8F6F\96C5\9ED1";
+ 
+  background-color:#EEE;
+}
+ 
+.content {
+ 
+  width: 94%;
+ 
+  padding: 0 3%;
+ 
+  overflow: hidden;
+ 
+}
+ 
+.img-list2 {
+ 
+  width: 100%;
+ 
+}
+ 
+
+ 
+.img-list2 .ul .li {
+ 
+  position: relative;
+ 
+  width: 100%;
+ 
+  height: 145px;
+ 
+  overflow: hidden;
+ 
+  box-shadow: 0px 0px 10px 1px #ddd;
+ 
+  margin-top: 15px;
+ 
+  background-color: #27c79a;
+ 
+  color: #fff;
+ 
+  border-radius: 20px;
+ 
+}
+ 
+
+ 
+.img-list2 .ul .li .title {
+ 
+  width: 94%;
+ 
+  padding: 0 3%;
+ 
+  padding-top: 10px;
+ 
+  height: 25px;
+ 
+  font-size: 18px;
+ 
+}
+ 
+
+ 
+.img-list2 .ul .li .info {
+ 
+  width: 94%;
+ 
+  padding: 0 3%;
+ 
+  /* padding-bottom: 10px; */
+ 
+}
+ 
+
+ 
+.img-list2 .ul .li .info text {
+ 
+  display: block;
+ 
+  width: 50%;
+}
+ 
+
+ 
+.img-list2 .ul .li .start text {
+ 
+  float: left;
+ 
+}
+ 
+
+ 
+.img-list2 .ul .li .start {
+ 
+  width: 94%;
+ 
+  padding: 0 3%;
+ 
+  height: 40px;
+ 
+  line-height: 40px;
+ 
+  background-color: #27c79a;
+ 
+  color: #999;
+ 
+}
+ 
+
+ 
+.image {
+ 
+  position: absolute;
+ 
+  right: 1%;
+ 
+  top: 40px;
+ 
+}
+ 
+
+ 
+.toast-box {
+ 
+  width: 100%;
+ 
+  height: 100%;
+ 
+  opacity: 1;
+ 
+  position: fixed;
+ 
+  top: 0px;
+ 
+  left: 0px;
+ 
+}
+ 
+
+ 
+.toastbg {
+ 
+  opacity: 0.2;
+ 
+  background-color: black;
+ 
+  position: absolute;
+ 
+  width: 100%;
+ 
+  min-height: 100vh;
+ 
+}
+ 
+
+ 
+.showToast {
+ 
+  position: absolute;
+ 
+  opacity: 1;
+ 
+  width: 70%;
+ 
+  margin-left: 15%;
+ 
+  margin-top: 40%;
+ 
+}
+ 
+
+ 
+.toast-title {
+ 
+  padding-left: 5%;
+ 
+  background-color: white;
+ 
+  padding-top: 2vh;
+ 
+  padding-bottom: 2vh;
+ 
+  border-top-right-radius: 16rpx;
+ 
+  border-top-left-radius: 16rpx;
+ 
+}
+ 
+
+ 
+.toast-main {
+ 
+  padding-top: 2vh;
+ 
+  padding-bottom: 2vh;
+ 
+  background-color: white;
+ 
+  text-align: center;
+ 
+  border-radius: 16rpx;
+ 
+}
+ 
+
+ 
+.toast-main1 {
+ 
+  padding-top: 2vh;
+ 
+  padding-bottom: 2vh;
+ 
+  background-color: white;
+ 
+  text-align: center;
+ 
+}
+ 
+
+ 
+.toast-input {
+ 
+  margin-left: 5%;
+ 
+  margin-right: 5%;
+ 
+  border: 1px solid #ddd;
+ 
+  padding-left: 2vh;
+ 
+  padding-right: 2vh;
+ 
+  padding-top: 1vh;
+ 
+  padding-bottom: 1vh;
+ 
+}
+ 
+
+ 
+.toast-button {
+ 
+  display: flex;
+ 
+}
+ 
+
+ 
+.button1 {
+ 
+  width: 50%;
+ 
+}
+ 
+
+ 
+.button2 {
+ 
+  width: 50%;
+ 
+}
+ 
+
+ 
+.button1 button {
+ 
+  width: 100%;
+ 
+  background-color: white;
+ 
+  color: red;
+ 
+  border-radius: 0px;
+ 
+  border-bottom-left-radius: 16rpx;
+ 
+}
+ 
+
+ 
+.button2 button {
+ 
+  width: 100%;
+ 
+  background-color: white;
+ 
+  color: black;
+ 
+  border-radius: 0px;
+ 
+  border-bottom-right-radius: 16rpx;
+ 
+}
+ 
+
+ 
+.picker {
+ 
+  padding-top: 1vh;
+ 
+  padding-bottom: 1vh;
+ 
+}
+ 
+
+ 
+.round-click {
+ 
+  height: 130rpx;
+ 
+  width: 130rpx;
+ 
+  border-radius: 100%;
+ 
+  position: fixed;
+ 
+  bottom: 150rpx;
+ 
+  right: 20rpx;
+ 
+  display: flex;
+ 
+  align-items: center;
+ 
+  justify-content: center;
+ 
+  z-index: 9;
+ 
+}
+ 
+.round-click navigator {
+ 
+  font-size: 32rpx;
+ 
+  max-width: 80rpx;
+ 
+  color: #fff;
+ 
+  text-align: center;
+ 
+}
+.zhmock{
+  height: 20px;
+  line-height: 20px;
+}
+.enmock{
+  height:35px;
+  line-height: 20px;
+}
+@keyframes around {
+  from {
+   margin-left: 100%;
+  }
+  to {
+   /* var接受传入的变量 */
+   margin-left: var(--marqueeWidth--);
+  }
+ }
+ 
+.marquee_container{
+  height: 70rpx;
+  line-height: 84rpx;
+  position: relative;
+  width: 85%;
+  margin-top:0rpx;
+  float: right;
+}
+.marquee_container:hover{
+  /* 不起作用 */
+  animation-play-state: paused;
+}
+.marquee_text{
+  color:#fff;
+  display: inline-block;
+  white-space: nowrap;
+  animation-name: around;
+  animation-duration: 10s;  /*过渡时间*/
+  animation-iteration-count: infinite;
+  animation-timing-function:linear;
+}

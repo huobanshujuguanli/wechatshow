@@ -1,0 +1,22 @@
+<view wx:if="{{lang}}">
+  <view class='row'>
+    <view class='info'>
+      <input class="info-input" bindinput="bindinput" value="{{inputValue}}" placeholder="{{content.register_pguojia}}" />
+    </view>
+    <scroll-view scroll-y="true" class="scrollview">
+      <view wx:for="{{bindSource}}">
+        <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>
+<view class='row'>
+  <view class='info'>
+    如您是第一次使用此小程序，且注册过简洁锅炉管理系统，点击下方微信授权，页面提示授权成功后，再点击“绑定已有账号”。
+    如您没有注册过简洁锅炉管理系统，点击下方微信授权，页面提示授权成功后，再点击“创建一个账号”。
+  </view>
+</view>
+<button open-type="getUserInfo" class='submit' bindgetuserinfo="bindGetUserInfo">{{content.list_shouquan}}</button>
+<button class='submit' bindtap='submit'>{{content.login_bindUser}}</button>
+<button class='submit' bindtap='register'>{{content.login_creatuser}}</button>

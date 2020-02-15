@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/deviceList/deviceList",
+    "pages/operation/operation",
+    "pages/login/login",
+    "pages/deviceDetail/deviceDetail",
+    "pages/index/index",
+    "pages/warningType/warningType",
+    "pages/register/register",
+    "pages/forgotPw/forgotPw",
+    "pages/reports/reports",
+    "pages/soldUpdate/soldUpdate",
+    "pages/salesChange/salesChange",
+    "pages/loginChoose/loginChoose",
+    "pages/payMenu/payMenu",
+    "pages/order/order"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "简洁软件",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/deviceList/deviceList",
+        "text": "设备",
+        "iconPath": "images/tab_activity.png",
+        "selectedIconPath": "images/tab_activity_selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "images/tab_home.png",
+        "selectedIconPath": "images/tab_home_selected.png"
+      },
+      {
+        "pagePath": "pages/operation/operation",
+        "text": "添加",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/add_select.png"
+      }
+    ],
+    "color": "#888888",
+    "selectedColor": "#27c79a",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 5000
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,293 @@
+<!--导航条-->
+<view class="navbar"  >
+  <text wx:for="{{navbar}}" data-idx="{{index}}" data-name="{{item}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<view hidden="{{currentTab!=runinfoMenu}}">
+  <view class='view'>
+    <image style="width: 300px; height: 140px;" mode="aspectFit" src="{{src}}"></image>
+    <view style='position: absolute;right:300rpx;top:220rpx;color:white;'>{{jiarezu}}</view>
+  </view>
+  <view style='width:100%；height:75px;'>
+    <view wx:for="{{bengList}}" wx:for-item="item" wx:key="key" style='width: 100px; height:75px; float:left'>
+      <image style="width: 100px; height:50px;" mode="aspectFit" src="{{item.src}}"></image>
+      <text style='font-size:14px;display:block;text-align: center; '>{{item.title}}</text>
+    </view>
+  </view>
+  <view style='width:100%；height:75px;'>
+    <view wx:for="{{fanList}}" wx:key="fanList"   wx:for-item="item" style='width: 100px; height:75px; float:left'>
+      <image style="width: 100px; height:50px;" mode="aspectFit" src="{{item.src}}"></image>
+      <text style='font-size:14px;display:block;text-align: center; '>{{item.title}}</text>
+    </view>
+  </view>
+  <view style='clear:both'></view>
+  <!--分类 -->
+  <view class='show' style='border: 1px solid #c8c7cc;border-radius: 5px;margin: 10px; margin-top:30px;overflow:scroll'>
+    <view class="li" data-index="0" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/jiben.png"></image>
+        {{detail_base}}</view>
+      <view class="right">
+        <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[0]}}">
+      <block wx:for="{{baseInfoMap}}" wx:key="baseInfoMap"  wx:for-item="item"  wx:key="key"  wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <text decode="{{true}}" wx:if="{{item.name!='jia_re_zu_count'}}">{{item.title}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.valueString}}</text>
+          <text decode="{{true}}" wx:if="{{item.name=='jia_re_zu_count'}}">{{item.title}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.value}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="li" data-index="1" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/moniliang.png"></image>
+        {{detail_mock}}</view>
+      <view class="right">
+        <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[1]}}">
+      <block wx:for="{{mockInfoMap}}" wx:key="mockInfoMap" wx:for-item="item"  wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <view>
+            <text decode="{{true}}">{{item.title}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.valueString}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="li" data-index="2" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/baojing.png"></image>
+        {{detail_ex}}</view>
+      <view class="right red">
+        <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[2]}}">
+      <block wx:for="{{exceptionInfoMap}}" wx:for-item="item" wx:key="key" wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <view>{{item.title}}</view>
+        </view>
+      </block>
+    </view>
+
+    <view class="li" data-index="3" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/shebei.png"></image>
+        {{detail_deviceinfo}} </view>
+      <view class="right ">
+        <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[3]}}">
+      <block wx:for="{{deviceInfoMap}}" wx:key="deviceInfoMap" wx:for-item="item"  wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <view>
+            <text decode="{{true}}">{{item.title}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.valueString}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="li" data-index="4" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/shezhi.png"></image>
+         {{detail_deviceparameters}}</view>
+      <view class="right ">
+      <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[4]}}">
+      <block wx:for="{{settingInfoMap}}"  wx:key="settingInfoMap" wx:for-item="item"  wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <view>
+                <text decode="{{true}}"  style="">{{item.title}}{{item.valueString}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    
+
+     <view class="li" data-index="5" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/weeksetting.png"></image>
+         {{detail_weeksetting}}</view>
+      <view class="right ">
+      <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[5]}}">
+      <block wx:for="{{weeksettingMap}}"  wx:key="weeksettingMap" wx:for-item="item"  wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <view>
+                <text decode="{{true}}"  style="">{{item.title}}{{item.valueString}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+   <view class="li" data-index="6" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/switchquantity.png"></image>
+         {{detail_startstoptime}}</view>
+      <view class="right ">
+      <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[6]}}">
+      <block wx:for="{{startstoptimeMap}}"  wx:key="startstoptimeMap" wx:for-item="item"  wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <view>
+                <text decode="{{true}}"  style="">{{item.title}}{{item.valueString}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+
+     <view class="li" data-index="7" bindtap='changeToggle'>
+      <view class="left">
+        <image style="width: 60rpx; height: 60rpx;bertical-align:middle;vertical-align: middle" src="../../images/startstop.png"></image>
+         {{detail_switchquantity}}</view>
+      <view class="right ">
+      <text class="iconfont {{selectedFlag[0]?'icon-shangla':'icon-shangla1'}}"> </text>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag[7]}}">
+      <block wx:for="{{switchquantityMap}}"  wx:key="switchquantityMap" wx:for-item="item"  wx:for-index="index">
+        <view class="{{lang==='zh-cn'?'bg-gray-zh':'bg-gray-en'}}">
+          <view>
+                <text decode="{{true}}"  style="">{{item.title}}{{item.valueString}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+
+  </view>
+</view>
+<!--搜索-->
+<view hidden="{{currentTab!=exceptionMenu}}">
+  <view style='width:100%;'>
+    <view wx:for="{{errorList}}" wx:for-item="item" wx:key="key" style='width: 100%; height:70px;border-bottom: 1rpx solid #f1f1f1;margin:10px;'>
+      <view wx:if="{{item.states ===content.detail_nochuli}}">
+        <text style='font-size:14px;display:block;color:#fe2e2e;'>{{item.title}}</text>
+      </view>
+      <view wx:if="{{item.states === content.detail_treated}}">
+        <text style='font-size:14px;display:block;'>{{item.title}}</text>
+      </view>
+      <text style='font-size:14px;display:block;'>{{content.detail_time}}：<text style='color:blue;'>{{item.date}}</text></text>
+      <text style='font-size:14px;display:block;'>{{content.detail_chulistates}}：<text style='color:blue;'>{{item.states}}</text></text>
+    </view>
+  </view>
+</view>
+<view hidden="{{currentTab!=reportMenu}}">
+  <view wx:if="{{report}}">
+    <view style='width:100%;margin-top:20rpx;display:flex;flex-direction:row;height:80rpx;line-height:80rpx;'>
+      <view style='width:33.3%;text-align:center;' class="{{tian==-3 ? 'active1' : ''}}" data-tian="-3" data-date="{{daqiantian}} " bindtap='choosedata'>{{daqiantian}}</view>
+      <view style='width:33.3%;text-align:center;' class="{{tian==-2 ? 'active1' : ''}}" data-tian="-2" data-date="{{qiantian}}" bindtap='choosedata'>{{qiantian}}</view>
+      <view style='width:33.3%;text-align:center;' class="{{tian==-1 ? 'active1' : ''}}" data-tian="-1" data-date="{{zuotian}}" bindtap='choosedata'>{{zuotian}}</view>
+    </view>
+    <view class="container_wxchart" wx:if="{{havedata}}">
+      <canvas canvas-id="mockLine" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+    </view>
+    <view class="section section_gap" wx:if="{{havedata}}"> 
+      <view class="section__title">{{content.detail_plziduan}}：</view>
+      <radio-group bindchange="radiochange">
+        <label class="checkbox" wx:for="{{runInfoMoList}}" wx:key="runInfoMoList" >
+          <view style='margin:30rpx'>
+            <radio value="{{item.name}}"checked="{{mock1==item.name ? 'true' : ''}}" data-name="{{item.title}}" />{{item.title}}</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+</view>
+<view hidden="{{currentTab!=controlMenu}}">
+  <view wx:if="{{control}}">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <block wx:for="{{controlList}}" wx:for-item="item" wx:key="key" wx:for-index="index">
+          <view wx:if="{{item.length>0}}">
+            <view class="section_top">
+              <label style='display:block;float:left;margin-left:15px'>{{index}}</label>
+            </view>
+            <block wx:for="{{item}}" wx:for-item="item1" wx:key="key" wx:for-index="index1">
+              <view wx:if="{{item1.valueType==1|| item1.valueType==2}}">
+                <view class="section" catchtap='editData' data-index="{{index}}" data-index1="{{index1}}" data-max="{{item1.maxValue}}" data-min="{{item1.minValue}}">
+                  <label style='display:block;float:left;'>{{item1.title}}：</label>
+                  <image style="width: 42rpx; height: 42rpx;float:right;" src="../../images/right.png"></image>
+                  <label style='display:block;float:right;'>{{item1.valueString}}</label>
+                </view>
+              </view>
+              <view wx:if="{{item1.valueType==5|| item1.valueType==6}}">
+                <view class="section_time">
+                  <label style='display:block;float:left;'>{{content.detail_startstopcontrol}}：</label>
+                   <label style='display:block;float:right;'>{{content.detail_yunxing}}</label>
+                  <switch style='zoom:.9;float:right;margin-top:-4px;' data-index="{{index}}" data-index1="{{index1}}" checked="{{item1.valueString=='2'||item1.valueString=='3' ?'true':''}}" bindchange="switchChange" />
+                  <label style='display:block;float:right;margin-right: 10rpx;'>{{content.detail_daiming}}</label>
+                </view>
+              </view>
+              <view wx:if="{{item1.valueType==4}}">
+                <view class="section_time ">
+                  <label style='display:block;float:left;'>{{item1.title}}：</label>
+                  <picker mode="time" value="{{date}}" start="00时:00分" end="23:59" bindchange="bindDateChange" style='float:right;margin-right:15px'>
+                    <view class="picker">
+                      {{date}}
+                    </view>
+                  </picker>
+                </view>
+              </view>
+            </block>
+          </view>
+        </block>
+        <!-- <view class="section_top">
+          <label style='display:block;float:left;margin-left:15px'>系统设置</label>
+        </view>
+        <view class="section_time ">
+          <label style='display:block;float:left;'>启停时间：</label>
+          <picker mode="time" value="{{date}}" start="00时:00分" end="23:59" bindchange="bindDateChange" style='float:right;margin-right:15px'>
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+        <view class="section_time">
+          <label style='display:block;float:left;'>系统状态：</label>
+          <switch style='zoom:.8;float:right;margin-right:11px;margin-top:-4px;' name="switch" />
+        </view> -->
+
+        <view class="btn-area">
+          <button formType="submit" type="primary">{{content.detail_nowzhixing}}</button>
+          <!-- <button formType="reset" type="default">Reset</button> -->
+        </view>
+      </form>
+
+  </view>
+</view>
+<view hidden="{{currentTab!=smsMenu}}">
+  smsMenu
+</view>
+<view hidden="{{currentTab!=payMenu}}">
+</view>
+
+<view class='toast-box' hidden='{{!ifedit}}'>
+  <view class='toastbg'></view>
+  <view class='showToast'>
+    <view class='toast-title'>
+      <text>{{content.detail_canshu}}</text>
+    </view>
+    <view class='toast-main'>
+      <view class='toast-input'>
+        <input placeholder='{{placeholder}}' bindinput="dName" value='{{inputValue}}'></input>
+      </view>
+    </view>
+    <view class='toast-button'>
+      <view class='button1'>
+        <button catchtap='cancel'>{{content.detail_cancel}}</button>
+      </view>
+      <view class='button2'>
+        <button catchtap='confirm'>{{content.detail_yes}}</button>
+      </view>
+    </view>
+  </view>
+</view>

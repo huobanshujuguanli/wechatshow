@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<view class="page" style='background-color:white;'>
+  <view class="page__bd">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <view class="section__title">设备编号：{{deviceNo}}</view>
+        <picker bindchange="bindPickerChange_prefix" value="{{prefix}}" range="{{prefixarray}}">
+          <view class="picker">
+            设备类别：{{prefixarray[prefix]}}
+          </view>
+        </picker>
+        <view class="section__title"></view>
+        <picker bindchange="bindPickerChange_deviceType" value="{{deviceType}}" range="{{typearray}}">
+          <view class="picker">
+            设备类型：{{typearray[deviceType]}}
+          </view>
+        </picker>
+        <view class="section__title"></view>
+        <picker bindchange="bindPickerChange_status" value="{{index}}" range="{{statesarray}}">
+          <view class="picker">
+            销售状态：{{statesarray[status]}}
+          </view>
+        </picker>
+        <view class="section__title"></view>
+        <picker bindchange="bindPickerChange_power" value="{{power}}" range="{{powerarray}}">
+          <view class="picker">
+            燃料：{{powerarray[power]}}
+          </view>
+        </picker>
+        <view class="section__title"></view>
+        <picker bindchange="bindPickerChange_media" value="{{media}}" range="{{mediaarray}}">
+          <view class="picker">
+            介质：{{mediaarray[media]}}
+          </view>
+        </picker>
+        <view class="section__title"></view>
+        <picker bindchange="bindPickerChange_comm" value="{{comm}}" range="{{commarray}}">
+          <view class="picker">
+            通讯方式：{{commarray[comm]}}
+          </view>
+        </picker>
+        <view class="section__title"></view>
+        <view class="section__title" wx:if="{{comm ==0}}">
+        Sim卡号：<input bindinput="bindsim"value="{{sim}}" style='padding:15rpx 25rpx;margin-top: 20rpx;border: 1px solid #EEE;' />
+        </view>
+       
+      </view>
+      <view class="btn-area">
+        <view class="button-wrapper">
+          <button type="primary" bindtap="formSubmit" class="primary">修改</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>
