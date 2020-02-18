@@ -1,0 +1,50 @@
+/**index.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+} 
+.item {
+  margin-top: 20rpx;
+  width: 100%
+}
+.order {
+    display: flex;
+    margin: 0 20rpx;
+    padding: 30rpx 0;
+}
+.imag {
+    width: 100rpx;
+    height: 100rpx;
+}
+.text {
+   font-size: 30rpx;
+  margin-left: 25rpx;
+}
+.text1 {
+     font-size: 25rpx;
+      margin-left: 25rpx;
+      margin-top: 20rpx;
+}
+.total {
+    display: flex;
+  
+    justify-content: space-between;
+  
+   
+}
+.paymentAmount {
+    display: flex;
+ 
+    justify-content: space-between;
+  
+    border-bottom: 2rpx solid #f3f3f3;
+}
+.discount {
+    display: flex;
+   
+    justify-content: space-between;
+   
+  
+}

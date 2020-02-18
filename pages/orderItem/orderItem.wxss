@@ -1,0 +1,25 @@
+
+.item1 {
+  
+    border-bottom: 2rpx solid #f3f3f3;
+   
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+   
+   
+}
+.btn1 {
+  width: 35%;
+  margin-top: 20rpx;
+margin-left: 500rpx;
+  background-color:gold;
+  color: white;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
