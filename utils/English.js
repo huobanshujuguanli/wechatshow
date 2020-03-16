@@ -59,6 +59,7 @@ var English = {
   index_canIUse: "Binding platform account",
   warningType_title: "Alarm way",
   warningType_exType: "Alarm way",
+  myOrder_exType: "My order",
   warningType_nowChoose: "Current selection",
   warningType_updatesuccess: "Modify the success",
   lanuage_title: "Select the language",

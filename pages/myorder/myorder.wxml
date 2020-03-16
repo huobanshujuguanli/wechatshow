@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view  class="item" wx:for="{{orders}}" wx:key="{{i}}">
+  <navigator url="../orderItem/orderItem?orderId={{item.id}}">
+  <view class="order">
+  <image class="imag" src="../../images/orderlog.png"></image>
+  <view >
+   <view class="text">订单状态：{{item.status}}</view>
+    <view wx:if="{{item.status=='待支付'}}" class="text1">下单时间：{{item.createDate}}</view>
+    <view wx:if="{{item.status=='已付款'}}" class="text1">付款时间：{{item.payforDate}}</view>
+  </view>
+  </view>
+   <view  wx:if="{{item.total}}" class="total">
+  <view class="text">应付金额</view>
+    <view class="text">￥{{item.total}}</view>
+  </view>
+   <view  wx:if="{{item.discount}}" class="discount">
+  <view class="text">折扣</view>
+    <view class="text">{{item.discount}}</view>
+  </view>
+  <view  wx:if="{{item.paymentAmount}}" class="paymentAmount">
+  <view class="text">实付金额</view>
+    <view class="text">￥{{item.paymentAmount}}</view>
+  </view>
+  </navigator>
+  </view>
+</view>

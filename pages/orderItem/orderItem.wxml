@@ -1,0 +1,28 @@
+ <view>
+ <view class="item1" wx:for="{{orderItem}}" wx:key="{{i}}" >
+  <view>{{item.deviceNo}}</view>
+ <view class="item">
+    <view >{{item.resourceName}}</view>
+      <view >{{item.range}}{{item.rangeType}}</view>
+  </view>
+  <view wx:if="{{item.amount}}" class="item">
+  <view>数量</view>
+    <view >{{item.amount}}</view>
+    </view>
+     <view wx:if="{{item.mobile}}" class="item">
+  <view>手机号</view>
+    <view >{{item.mobile}}</view>
+    </view>
+     <view wx:if="{{item.marker}}" class="item">
+  <view>备注</view>
+    <view >{{item.marker}}</view>
+    </view>
+     <view wx:if="{{item.price}}" class="item">
+  <view>价格</view>
+    <view >￥{{item.price}}</view>
+    </view>
+   </view>
+ <button class='btn1' >
+    <view>再下一单</view>
+ </button>
+  </view>

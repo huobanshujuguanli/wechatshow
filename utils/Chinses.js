@@ -58,6 +58,7 @@ var Chinese = {
   index_sold:"设备管理",
   warningType_title: "报警方式",
   warningType_exType: "报警方式",
+  myOrder_exType: "我的订单",
   warningType_nowChoose: "当前选择：",
   warningType_updatesuccess: "修改成功",
   lanuage_title: "选择语言",
