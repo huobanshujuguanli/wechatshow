@@ -184,8 +184,15 @@ Page({
       method: 'GET',
       success: function(res) {
         console.log(res)
+        var celue;
+        if (res.data.data.discount != null) {
+          celue = res.data.data.discount
+        }else{
+          celue = "不满足优惠条件"
+        }
         var discount = {
-          discount: res.data.data.discount,
+          
+          discount: celue,
           total: res.data.data.total,
           paymentAmount: res.data.data.paymentAmount,
         }
