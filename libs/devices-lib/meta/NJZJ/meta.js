@@ -59,6 +59,9 @@ var DeviceField = /** @class */ (function (_super) {
         _this.valueMap = new Collections_1.NumberHashMap(valueMap);
         return _this;
     }
+    DeviceField.prototype.moveBit = function (bytes) {
+        return bytes[1] & 0xFF | (bytes[0] & 0xFF) << 8;
+    };
     DeviceField.prototype.chanageValue = function (bytes) {
     };
     DeviceField.prototype.haveValue = function () {
@@ -66,7 +69,7 @@ var DeviceField = /** @class */ (function (_super) {
         for (var _i = 0; _i < arguments.length; _i++) {
             bytes[_i] = arguments[_i];
         }
-        this.value = bytes[1] & 0xFF | (bytes[0] & 0xFF) << 8;
+        this.value = this.moveBit(bytes); //bytes[1] & 0xFF | (bytes[0] & 0xFF) << 8
         if (0x7FFF == this.value)
             return false;
         this.value = 0;
@@ -131,7 +134,7 @@ var RanShaoQiField = /** @class */ (function (_super) {
                 this.value = 0;
             }
             else {
-                this.value = bytes[1] > 50 ? 2 : 1;
+                this.value = bytes[1] > 1 ? 2 : 1;
             }
             return true;
         }

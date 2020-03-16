@@ -20,6 +20,7 @@ var meta_2 = require("../../../../meta/NJZJ/485/meta");
 var gfrm_1 = require("@sdcsoft/gfrm");
 var CountShowField_1 = require("../../../../meta/CountShowField");
 var comms_1 = require("@sdcsoft/comms");
+var CTL_NJZJ_2 = require("../../../../devices/CTL/NJZJ/CTL_NJZJ");
 var Map_CTL_NJZJ_IP_485 = /** @class */ (function (_super) {
     __extends(Map_CTL_NJZJ_IP_485, _super);
     function Map_CTL_NJZJ_IP_485() {
@@ -537,12 +538,12 @@ var Map_CTL_NJZJ_IP_485 = /** @class */ (function (_super) {
         _this.addPoint(new meta_1.DeviceField('de_ecixunhuan_beng', 1605, 2, '二次循环泵', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_yinfengji_fan', 1607, 2, '引风机', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_gufengji_fan', 1609, 2, '鼓风机', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
-        _this.addPoint(new meta_1.DeviceField('de_lupai_fan', 1611, 2, '炉排', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
+        _this.addPoint(new meta_1.DeviceField(CTL_NJZJ_2.IP.KEY_POINT_DEVICE_LUPAI, 1611, 2, '炉排', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_chuzhaji_fan', 1613, 2, '出渣机', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_ecigufengji_fan', 1615, 2, '二次鼓风机', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_dianhuoqi', 1617, 2, '点火器', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_shangmeiji_fan', 1619, 2, '上煤机', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
-        _this.addPoint(new meta_1.DeviceField('de_songliaoji_fan', 1621, 2, '送料机', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
+        _this.addPoint(new meta_1.DeviceField(CTL_NJZJ_2.IP.KEY_POINT_DEVICE_SONGLIAO, 1621, 2, '送料机', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_jiayao_beng', 1623, 2, '加药泵', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_paiwufa_fan', 1625, 2, '排污阀', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_huilu1xunhuan_beng', 1627, 2, '回路1循环泵', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
@@ -565,6 +566,7 @@ var Map_CTL_NJZJ_IP_485 = /** @class */ (function (_super) {
         _this.addPoint(new meta_1.DeviceField('de_santongfa', 1661, 2, '三通阀', CTL_NJZJ_1.Map_CTL_NJZJ.coms_device));
         return _this;
     }
+    //IP.KEY_POINT_DEVICE_LUPAI
     Map_CTL_NJZJ_IP_485.Commands_Key_Parameters_Setting = '参数设置';
     Map_CTL_NJZJ_IP_485.Commands_Key_System_Ctl = '系统控制';
     return Map_CTL_NJZJ_IP_485;

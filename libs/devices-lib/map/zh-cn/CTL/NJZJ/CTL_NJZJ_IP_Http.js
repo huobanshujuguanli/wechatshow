@@ -20,6 +20,7 @@ var CTL_NJZJ_1 = require("./CTL_NJZJ");
 var gfrm_1 = require("@sdcsoft/gfrm");
 var comms_1 = require("@sdcsoft/comms");
 var CountShowField_1 = require("../../../../meta/CountShowField");
+var CTL_NJZJ_2 = require("../../../../devices/CTL/NJZJ/CTL_NJZJ");
 var Map_CTL_NJZJ_IP_Http = /** @class */ (function (_super) {
     __extends(Map_CTL_NJZJ_IP_Http, _super);
     function Map_CTL_NJZJ_IP_Http() {
@@ -371,12 +372,12 @@ var Map_CTL_NJZJ_IP_Http = /** @class */ (function (_super) {
         _this.addPoint(new meta_1.DeviceField('de_ecixunhuan_beng', 699, 2, '二次循环泵', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_yinfengji_fan', 701, 2, '引风机', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_gufengji_fan', 703, 2, '鼓风机', Map_CTL_NJZJ_IP_Http.coms_device));
-        _this.addPoint(new meta_1.DeviceField('de_lupai_fan', 705, 2, '炉排', Map_CTL_NJZJ_IP_Http.coms_device));
+        _this.addPoint(new meta_1.DeviceField(CTL_NJZJ_2.IP.KEY_POINT_DEVICE_LUPAI, 705, 2, '炉排', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_chuzhaji_fan', 707, 2, '出渣机', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_ecigufengji_fan', 709, 2, '二次鼓风机', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_dianhuoqi', 711, 2, '点火器', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_shangmeiji', 713, 2, '上煤机', Map_CTL_NJZJ_IP_Http.coms_device));
-        _this.addPoint(new meta_1.DeviceField('de_songliaoji', 715, 2, '送料机', Map_CTL_NJZJ_IP_Http.coms_device));
+        _this.addPoint(new meta_1.DeviceField(CTL_NJZJ_2.IP.KEY_POINT_DEVICE_SONGLIAO, 715, 2, '送料机', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_jiayao_beng', 717, 2, '加药泵', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_paiwufa', 719, 2, '排污阀', Map_CTL_NJZJ_IP_Http.coms_device));
         _this.addPoint(new meta_1.DeviceField('de_huilu1xunhuan_beng', 721, 2, '回路1循环泵', Map_CTL_NJZJ_IP_Http.coms_device));

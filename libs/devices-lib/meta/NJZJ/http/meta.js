@@ -78,3 +78,14 @@ var StartStopField = /** @class */ (function (_super) {
     return StartStopField;
 }(meta_1.StartStopField));
 exports.StartStopField = StartStopField;
+var DeviceField = /** @class */ (function (_super) {
+    __extends(DeviceField, _super);
+    function DeviceField() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DeviceField.prototype.moveBit = function (bytes) {
+        return bytes[1] & 0xFF | (bytes[0] & 0xFF) << 8;
+    };
+    return DeviceField;
+}(meta_1.DeviceField));
+exports.DeviceField = DeviceField;

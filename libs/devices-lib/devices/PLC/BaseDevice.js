@@ -22,6 +22,10 @@ var PLC = /** @class */ (function (_super) {
     function PLC() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    PLC.prototype.validateFalse = function (bytesLength) {
+        //console.log(''+this.BYTE_ARRAY_LENGTH+'-'+bytesLength)
+        return this.BYTE_ARRAY_LENGTH > bytesLength;
+    };
     PLC.prototype.handleByteField = function (field, bytes) {
         //let view = new DataView(bytes)
         switch (field.getBytesLength()) {

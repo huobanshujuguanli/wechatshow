@@ -26,12 +26,14 @@ var IP = /** @class */ (function (_super) {
         switch (field.getBytesLength()) {
             case 0:
             case 2:
+                //console.log('b0-'+ (field.getStartIndex() + 1) +'->'+bytes[field.getStartIndex() + 1].toString(16)+' b1-'+ field.getStartIndex() +'->'+bytes[field.getStartIndex()].toString(16))
                 //if (field.haveValue(bytes[field.getStartIndex() + 1], bytes[field.getStartIndex()])) {
                 if (field.haveValue(bytes[field.getStartIndex() + 1], bytes[field.getStartIndex()])) {
                     this.addField(field);
                 }
                 break;
             default:
+                //console.log('b0-'+ (field.getStartIndex() + 1) +'->'+bytes[field.getStartIndex() + 1].toString(16)+' b1-'+ field.getStartIndex() +'->'+bytes[field.getStartIndex()].toString(16))
                 if (field.haveValue(bytes[field.getStartIndex() + 1], bytes[field.getStartIndex()])) {
                     this.addField(field);
                 }
@@ -259,7 +261,7 @@ var IP = /** @class */ (function (_super) {
         else if (this.power == 4) { //余热炉
             return 0;
         }
-        console.log('油');
+        //console.log('油')
         var v = this.getDeviceFields().getItem(IP.KEY_POINT_RAN_SHAO_QI).getValue(); // > 0x7F ? 1 : 0
         return v;
     };
@@ -288,6 +290,30 @@ var IP = /** @class */ (function (_super) {
         });
         return list;
     };
+    /**
+ * 获取炉子元素信息
+ * @returns AElement
+ */
+    IP.prototype.getStoveElement = function () {
+        var element = new Element_1.Element();
+        element.setPrefix(Element_1.Element.Prefix_Stove);
+        element.setTitle('锅炉');
+        if (this.power != SdcSoftDevice_1.Power.ShengWuZhi) {
+            element.SetValues(Element_1.Element.Index_A_Power, this.power, this.media, this.getPowerInfo(), SdcSoftDevice_1.SdcSoftDevice.Style_Horizontal);
+        }
+        else {
+            var map = this.getDeviceFields();
+            if (map.containsKey(IP.KEY_POINT_DEVICE_SONGLIAO)) {
+                element.SetValues(Element_1.Element.Index_A_Power, this.power, SdcSoftDevice_1.Media.ReShui, this.getPowerInfo(), SdcSoftDevice_1.SdcSoftDevice.Style_Vertical);
+            }
+            else {
+                element.SetValues(Element_1.Element.Index_A_Power, this.power, SdcSoftDevice_1.Media.ReShui, this.getPowerInfo(), SdcSoftDevice_1.SdcSoftDevice.Style_Horizontal);
+            }
+        }
+        return element;
+    };
+    IP.KEY_POINT_DEVICE_LUPAI = 'de_lupai_fan';
+    IP.KEY_POINT_DEVICE_SONGLIAO = 'de_songliaoji_fan';
     IP.Device_Suffix_Beng = '_beng';
     IP.Device_Suffix_Fan = '_fan';
     IP.KEY_POINT_RAN_SHAO_QI = 'de_ranshaoqi';

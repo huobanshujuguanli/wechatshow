@@ -197,8 +197,8 @@ var ByteDeviceField = /** @class */ (function (_super) {
         if (0x0000 == this.value) {
             this.value = 0;
         }
-        console.log('----------------------------');
-        console.log(this.value);
+        // console.log('----------------------------')
+        // console.log(this.value)
         return true;
     };
     return ByteDeviceField;

@@ -12,7 +12,7 @@ var Wechat_DeviceAdapter = /** @class */ (function () {
     Wechat_DeviceAdapter.prototype.createDeviceFunc = function (type) {
         var strs = type.split('_');
         var path = '../devices/' + strs.join('/');
-        console.log(path);
+        // console.log(path)
         var deviceType = require(path);
         var d = new deviceType();
         return d;
@@ -36,6 +36,7 @@ var Wechat_DeviceAdapter = /** @class */ (function () {
         }
         device.setTypeName(t);
         map.getPointMap().each(function (key, value) {
+            // console.log(value.getTitle()+' index->'+value.getStartIndex()+' length->'+value.getBytesLength())
             device.handleByteField(value, data);
         });
         device.handleCommandFields(map.getCommandsMap());
@@ -47,7 +48,6 @@ var Wechat_DeviceAdapter = /** @class */ (function () {
         var device = this.createDeviceFunc(type);
         var map = this.createMapFunc(type);
         if (device.validateFalse(data.byteLength)) {
-          console.log("null")
             return null;
         }
         /*用户确认设备类型时的逻辑
@@ -61,6 +61,7 @@ var Wechat_DeviceAdapter = /** @class */ (function () {
             if (key == SdcSoftDevice.KEY_POINT_RUN_DAYS) {
                 console.log('hhhhhhh')
             }*/
+            //console.log(value.getTitle()+' index->'+value.getStartIndex()+' length->'+value.getBytesLength())
             device.handleByteField(value, data);
         });
         //自动进行子类型确认

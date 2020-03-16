@@ -77,7 +77,7 @@ Page({
               })
             }
             wx.request({
-              url: 'http://127.0.0.1:8080/webapi/wechat/JinRong_OrderItem/create/many',
+              url: 'http://127.0.0.1:8080/webapi/wechat/JinRong_OrderItem/wx/create/many',
               method: "POST",
               data: {
                 jinRong_OrderItemList: JSON.stringify(itemList)
@@ -86,6 +86,7 @@ Page({
                 'content-type': 'application/x-www-form-urlencoded'
               },
               success: function(res) {
+                console.log(res)
                 if (status==1){
                   var resList = []
                   for (var i in list) {
