@@ -460,47 +460,6 @@ Page({
       }
     })
   },
-  /* 支付  */
-  pay: function (param) {
-    console.log("支付")
-    wx.requestPayment({
-      timeStamp: param.timeStamp,
-      nonceStr: param.nonceStr,
-      package: param.package,
-      signType: param.signType,
-      paySign: param.paySign,
-      success: function (res) {
-        console.log(res)
-        // success
-        // wx.navigateBack({
-        //   delta: 1, // 回退前 delta(默认为1) 页面
-        //   success: function (res) {
-        //     wx.showToast({
-        //       title: '支付成功',
-        //       icon: 'success',
-        //       duration: 2000
-        //     })
-        //   },
-        //   fail: function () {
-        //     // fail
-
-        //   },
-        //   complete: function () {
-        //     // complete
-        //   }
-        // })
-      },
-      fail: function (res) {
-        console.log(res)
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
-  },
-
-
   onLoad: function(options) {
     var that = this;
     wx.login({
@@ -515,25 +474,7 @@ Page({
           success: function (res) {
            var  openid = res.data.openid.substr(0, 10) + '_' + res.data.openid.substr(res.data.openid.length - 8, res.data.openid.length)
             app.globalData.openid = openid
-            wx.request({
-              url: 'http://127.0.0.1:8080/webapi/wechat/PayOrder/createPayOrder',
-              method: 'POST',
-              data: {
-                money: '0.1',
-                openId: openid
-              },
-              success: function (res) {
-                var pay = res.data.data
-                console.log(pay)
-                //发起支付
-                var timeStamp = pay.timeStamp;
-                var packages = pay.package;
-                var paySign = pay.paySign;
-                var nonceStr = pay.nonceStr;
-                var param = { "timeStamp": timeStamp, "package": packages, "paySign": paySign, "signType": "MD5", "nonceStr": nonceStr };
-                that.pay(param)
-              },
-            })
+          
             wx.request({
               //获取openid接口 
               url: 'https://apis.sdcsoft.com.cn/wechat/user/wxShow/check/openId',
