@@ -13,7 +13,9 @@
     "pages/salesChange/salesChange",
     "pages/loginChoose/loginChoose",
     "pages/payMenu/payMenu",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/myorder/myorder",
+    "pages/orderItem/orderItem"
   ],
   "window": {
     "backgroundTextStyle": "light",
